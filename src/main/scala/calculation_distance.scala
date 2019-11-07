@@ -29,13 +29,6 @@ object calculation_distance {
             .getOrCreate()
         import spark.implicits._
         val newDF = spark.table("point_coordinates")
-        def filter_station (data_in: DataFrame) : DataFrame = {
-            val data_out: DataFrame = data_in.where(data_in("day") === "9999-12-31").select(
-                "point_name",
-                "point_latitude",
-                "point_longitude")
-            return data_out
-        }
         def cross_join(data_in: DataFrame) : DataFrame = {
             val left_data: DataFrame = data_in.select(
                 $"point_name",
@@ -73,8 +66,7 @@ object calculation_distance {
             )
             return data_out
         }
-        var data: DataFrame  = filter_station(newDF)
-        data = cross_join(data)
+        var data: DataFrame  = cross_join(newDF)
         data = distance_column(data)
         data = filter_distance(data, 1500)
         data = collect_data(data)
