@@ -13,8 +13,10 @@ Add the following line to your `project/plugins.sbt` file:
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")
 ```
 
-And finally run following command and jar file will be created.
-```sbt assembly```
+And finally run following command and jar file will be created:
+```
+sbt assembly
+```
 
 ## run jar file by spark-submit
 
