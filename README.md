@@ -1,1 +1,1 @@
-# scala-fat-jar-for-spark
+# scala fat-jar for spark
